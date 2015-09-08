@@ -1,3 +1,19 @@
+## Performance Optimizations
+### index.html
+1. Move scripts from head to end of body tag
+2. Add print styles to style.css to minimize number of files requested
+3. Reduce size of pizzeria.jpg
+4. a) Add a grunt task to automate minifying CSS and inlining it in the index, since there's not too much CSS we can inline it and enhance the performance in desktop and especially on mobile.
+b) Same task also inlines javascript file perfmatters.js since it's a small script too
+5. Add a gunt task to automate uglify JS (minifying Javascript)
+7. Add a grunt task to automate and compressing images
+8. Serve optimized files by adding a grunt task that serves the files form dist folder
+9. Use font Web Font Loader library. Improves performance BUT it has a side effect of flashing a different font at first then changing the font once it's available. (FOUC)
+### pizza.html
+1.
+
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
@@ -32,7 +48,7 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
