@@ -1,3 +1,12 @@
+## To run the page locally:
+1. Clone the repo
+2. To install all dependencies, run: npm install
+3. To run the build use: grunt build
+This will do the necessary menification, image optimzation and assets compression.
+4. Run: grunt
+This defaults to serve the production ready files.
+5. To run page speed insight on index.html, after you serve the pages using the command 'grunt' run the command (in a different terminal window): grunt perf
+
 ## Performance Optimizations
 ### index.html
 1. Move scripts from head to end of body tag
@@ -10,8 +19,11 @@ b) Same task also inlines javascript file perfmatters.js since it's a small scri
 8. Serve optimized files by adding a grunt task that serves the files form dist folder
 9. Use font Web Font Loader library. Improves performance BUT it has a side effect of flashing a different font at first then changing the font once it's available. (FOUC)
 ### pizza.html
-1.
-
+1. Remove the cause of forced synchronous layout from changePizzaSizes function. Instead of calculating offsetWidth and changing the style, the function sizeSwitcher calculates an appropriate size and returns the value to be assigned to width as a percentage.
+2. Change any querySelectorAll functions to getElementByClassName
+3. Instead of accessing the DOM each time we call updatePositions, we query pizzas with 'mover' class and put them in an array
+4. Since phase in updatePositions function only has 5 values, there's no need to calculate it them in the foor loop that updates the positions for every item. We can calculate the five values outside of that for loop and save them in an array to access them per item.
+5. Instead of updating the width for every single pizza in the changePizzaSizes function. A class was added to the container of the pizzas changing the width depending on the class name
 
 
 ## Website Performance Optimization portfolio project

@@ -24,15 +24,7 @@ module.exports = function(grunt) {
 				options: {
 					strategy: 'mobile'
 				}
-			},
-			 paths: {
-		    options: {
-		      paths: ["/views/pizza.html"],
-		      locale: "en_GB",
-		      strategy: "desktop",
-		      threshold: 80
-		    }
-		  }
+			}
 		},
     clean: {
       dist: {
@@ -47,7 +39,7 @@ module.exports = function(grunt) {
       },
     },
 		imagemin: {
-			dist: {
+			indexImg: {
 			  options: {
 			  	optimizationLevel: 7
 			  },
@@ -57,13 +49,21 @@ module.exports = function(grunt) {
 					src: ['*.{png,jpg}'],
 					dest: 'dist/img'
 			  }]
+			},
+			pizzaImg: {
+				files: [{
+					expand: true,
+					cwd: 'views/images',
+					src: ['*.{png,jpg}'],
+					dest: 'dist/views/images'
+			  }]
 			}
 		},
 		cssmin: {
 			dist: {
 			  files: [{
 			    expand: true,
-		      src: ['css/*.css'],
+		      src: ['css/*.css', 'views/css/*.css'],
 		      dest: 'dist',
 		      ext: '.css'
 			  }]
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 			dist: {
 			  files: [{
 			    expand: true,
-		      src: ['js/*.js'],
+		      src: ['js/*.js', 'views/js/*.js'],
 		      dest: 'dist',
 		      ext: '.js'
 			  }]
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          src: ['*.html'],
+          src: ['*.html', ['views/*.html']],
           dest: 'dist'
         }]
       }

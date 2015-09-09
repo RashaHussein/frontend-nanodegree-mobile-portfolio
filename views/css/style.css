@@ -33,6 +33,23 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+  transform: translateZ(0);
+}
+
+#pizzaGenerator {
+  transform: translateZ(0);
+}
+
+#pizzaGenerator.large .randomPizzaContainer {
+  width: 50%;
+}
+
+#pizzaGenerator.medium .randomPizzaContainer {
+  width: 33.33%;
+}
+
+#pizzaGenerator.small .randomPizzaContainer {
+  width: 25%;
 }
 
 .randomPizzaContainer {
