@@ -19,11 +19,15 @@ b) Same task also inlines javascript file perfmatters.js since it's a small scri
 8. Serve optimized files by adding a grunt task that serves the files form dist folder
 9. Use font Web Font Loader library. Improves performance BUT it has a side effect of flashing a different font at first then changing the font once it's available. (FOUC)
 ### pizza.html
-1. Remove the cause of forced synchronous layout from changePizzaSizes function. Instead of calculating offsetWidth and changing the style, the function sizeSwitcher calculates an appropriate size and returns the value to be assigned to width as a percentage.
-2. Change any querySelectorAll functions to getElementByClassName
+1. Remove the cause of forced synchronous layout from 'changePizzaSizes' function. Instead of calculating 'offsetWidth' and changing the style, the function sizeSwitcher calculates an appropriate size and returns the value to be assigned to width as a percentage
+2. Change any 'querySelectorAll' or 'querySelector' functions to 'getElementByClassName' or 'getElementById'
 3. Instead of accessing the DOM each time we call updatePositions, we query pizzas with 'mover' class and put them in an array
-4. Since phase in updatePositions function only has 5 values, there's no need to calculate it them in the foor loop that updates the positions for every item. We can calculate the five values outside of that for loop and save them in an array to access them per item.
-5. Instead of updating the width for every single pizza in the changePizzaSizes function. A class was added to the container of the pizzas changing the width depending on the class name
+4. Since phase in 'updatePositions' function only has 5 values, there's no need to calculate it them in the foor loop that updates the positions for every item. We can calculate the five values outside of that for loop and save them in an array to access them per item.
+5. Instead of updating the width for every single pizza in the 'changePizzaSizes' function. A class was added to the container of the pizzas 'pizzaGenerator', changing the width of the child elements (the pizza containers) depending on the class added, 'small', 'medium' or 'large' which the 'sizeClass' function returns
+6. Moved the 'pizzasDiv' variable outside of the loop that is generating pizzas, so it only makes one DOM call instead of calling it on each iteration of the loop
+7. Instead of filling the screen of moving pizzas we only need a certain number which is what appears on the screen at any given time. We can calculate the number of rows by taking the height of the screen and diving it by 's', we then calculate the number of pizzas needed by multiplying the number of cloumns with the number of rows.
+8. Moved the declaration of 'elem' in the 'DOMContentLoaded' listener function outside the loop so it's not declared every iteration
+9. in the 'views/style.css' file, added 'transform: translateZ(0);' property to the 'mover' class to trigger the GPU. And 'backface-visibility: hidden' to enable hardware acceleration
 
 
 ## Website Performance Optimization portfolio project
