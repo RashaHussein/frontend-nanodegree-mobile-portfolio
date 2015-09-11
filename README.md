@@ -18,6 +18,7 @@ b) Same task also inlines javascript file perfmatters.js since it's a small scri
 7. Add a grunt task to automate and compressing images
 8. Serve optimized files by adding a grunt task that serves the files form dist folder
 9. Use font Web Font Loader library. Improves performance BUT it has a side effect of flashing a different font at first then changing the font once it's available. (FOUC)
+
 ### pizza.html
 1. Remove the cause of forced synchronous layout from 'changePizzaSizes' function. Instead of calculating 'offsetWidth' and changing the style, the function sizeSwitcher calculates an appropriate size and returns the value to be assigned to width as a percentage
 2. Change any 'querySelectorAll' or 'querySelector' functions to 'getElementByClassName' or 'getElementById'
