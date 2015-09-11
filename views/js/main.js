@@ -530,7 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var elem;
   // Moved querying the DOM outside of the forloop so it's only done once.
   // Instead of using 'querySelector' we use the faster method 'getElementById'
-  var movingPizzas = document.getElementById("movingPizzas1").appendChild(elem);
+  var movingPizzas = document.getElementById("movingPizzas1");
   for (var i = 0; i < 40; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
